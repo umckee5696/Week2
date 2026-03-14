@@ -41,7 +41,6 @@ jobs:
           MAX_FILE_CHANGES: "250"
         with:
           script: |
-            const core = require('@actions/core');
 
             const apiKey = process.env.GEMINI_API_KEY;
             if (!apiKey) {
