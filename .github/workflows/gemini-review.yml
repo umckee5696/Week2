@@ -1,0 +1,214 @@
+name: Gemini PR Review (Android Kotlin)
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "리뷰 코멘트를 달 PR 번호 (예: 12)"
+        required: true
+        type: string
+      max_files:
+        description: "리뷰할 최대 파일 수(기본 7)"
+        required: false
+        default: "7"
+        type: string
+      model:
+        description: "Gemini model (기본 gemini-1.5-pro)"
+        required: false
+        default: "gemini-1.5-pro"
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  gemini_review:
+    if: ${{ github.event_name != 'pull_request' || !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+    steps:
+      - name: Generate Gemini review and comment on PR
+        uses: actions/github-script@v7
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REVIEW_RULE_PATH: ai/review-android-workbook.yml
+          DEFAULT_MAX_FILES: "7"
+          DEFAULT_MODEL: "gemini-1.5-pro"
+          # 큰 변경 파일은 토큰 폭탄이라 스킵(저비용 핵심 옵션)
+          MAX_FILE_CHANGES: "250"
+        with:
+          script: |
+
+            const apiKey = process.env.GEMINI_API_KEY;
+            if (!apiKey) {
+              core.setFailed('Missing secret: GEMINI_API_KEY');
+              return;
+            }
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            let prNumber;
+            if (context.eventName === 'pull_request') {
+              prNumber = context.payload.pull_request.number;
+            } else {
+              prNumber = parseInt(core.getInput('pr_number', { required: true }), 10);
+              if (!Number.isFinite(prNumber)) {
+                core.setFailed('Invalid pr_number input');
+                return;
+              }
+            }
+
+            const manualMaxFiles = core.getInput('max_files') || '';
+            const manualModel = core.getInput('model') || '';
+
+            const MAX_FILES = parseInt(
+              (context.eventName === 'workflow_dispatch' ? manualMaxFiles : '') || process.env.DEFAULT_MAX_FILES || '7',
+              10
+            );
+            const MODEL =
+              (context.eventName === 'workflow_dispatch' ? manualModel : '') || process.env.DEFAULT_MODEL || 'gemini-1.5-pro';
+
+            const MAX_FILE_CHANGES = parseInt(process.env.MAX_FILE_CHANGES || '250', 10);
+
+            async function loadRuleText(path, ref) {
+              try {
+                const res = await github.rest.repos.getContent({ owner, repo, path, ref });
+                if (Array.isArray(res.data) || !res.data.content) return '';
+                const buff = Buffer.from(res.data.content, res.data.encoding || 'base64');
+                return buff.toString('utf8');
+              } catch (e) {
+                core.warning(`Could not load ${path}: ${e.message}`);
+                return '';
+              }
+            }
+
+            const pr = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
+            const prTitle = pr.data.title;
+            const prBody = pr.data.body || '';
+            const baseSha = pr.data.base.sha;
+
+            const ruleText = await loadRuleText(process.env.REVIEW_RULE_PATH, baseSha);
+
+            const files = await github.paginate(
+              github.rest.pulls.listFiles,
+              { owner, repo, pull_number: prNumber, per_page: 100 }
+            );
+
+            const includeRegexes = [
+              /\/src\/main\/(java|kotlin)\/.*\.kt$/i,
+              /\/src\/main\/res\/layout\/.*\.xml$/i,
+              /\/src\/main\/res\/navigation\/.*\.xml$/i,
+            ];
+            const excludeRegexes = [
+              /Test\.kt$/i,
+              /AndroidTest\.kt$/i,
+              /\/build\//i,
+              /\/generated\//i,
+              /\/R\.kt$/i,
+              /\/BuildConfig\.kt$/i,
+            ];
+
+            function isIncluded(f) {
+              const p = f.filename || '';
+              if (!includeRegexes.some(r => r.test(p))) return false;
+              if (excludeRegexes.some(r => r.test(p))) return false;
+              return true;
+            }
+
+            // 1) 필요한 파일만
+            // 2) 너무 큰 변경은 스킵(토큰/비용 보호)
+            // 3) 상위 N개만
+            const filtered = files
+              .filter(isIncluded)
+              .filter(f => (f.additions + f.deletions) <= MAX_FILE_CHANGES);
+
+            const targetFiles = filtered.slice(0, MAX_FILES);
+
+            if (targetFiles.length === 0) {
+              core.info('No matching files to review (or all were too large). Skipping.');
+              return;
+            }
+
+            const diffChunks = targetFiles.map((f, idx) => {
+              const patch = f.patch ? f.patch : '(no patch available - file too large or binary)';
+              return [
+                `# File ${idx + 1}: ${f.filename}`,
+                `Status: ${f.status}, additions: ${f.additions}, deletions: ${f.deletions}`,
+                '```diff',
+                patch,
+                '```'
+              ].join('\n');
+            }).join('\n\n');
+
+            const prompt = `
+            당신은 Kotlin/Android 생태계에 정통한 시니어 안드로이드 엔지니어입니다.
+            리뷰는 반드시 한국어로 작성하세요.
+            중요: 제공된 diff 기반으로만 리뷰하세요.
+
+            [PR 정보]
+            제목: ${prTitle}
+            설명:
+            ${prBody}
+
+            [리뷰 룰]
+            ${ruleText || '(리뷰 룰 파일을 읽지 못했습니다. 기본 Android/Kotlin + MVVM + 네트워크/비동기 + RecyclerView 성능 기준으로 리뷰하세요.)'}
+
+            [변경 diff]
+            ${diffChunks}
+
+            출력:
+            - 요약(3~6줄)
+            - 주요 이슈(Severity: High/Medium/Low, 문제→영향→제안)
+            - 개선 제안
+            - 다음 PR에서 신경쓸 포인트 3개
+            `;
+
+            async function callGemini(model, text) {
+              const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+              const body = {
+                contents: [{ role: 'user', parts: [{ text }] }],
+                generationConfig: { temperature: 0.2, maxOutputTokens: 1400 }
+              };
+
+              const resp = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+              });
+
+              if (!resp.ok) {
+                const errText = await resp.text();
+                throw new Error(`Gemini API error: ${resp.status} ${resp.statusText} - ${errText}`);
+              }
+
+              const data = await resp.json();
+              return (data?.candidates?.[0]?.content?.parts || [])
+                .map(p => p.text)
+                .join('\n')
+                .trim();
+            }
+
+            const reviewText = await callGemini(MODEL, prompt);
+            if (!reviewText) return;
+
+            const runType = (context.eventName === 'workflow_dispatch') ? '수동 실행' : '자동 실행(PR당 1회)';
+            const bodyText =
+              `## 🤖 Gemini 코드리뷰 (Android/Kotlin)\n` +
+              `- 실행: ${runType}\n` +
+              `- 모델: ${MODEL}\n` +
+              `- 대상 파일: ${targetFiles.length}개 (최대 ${MAX_FILES}개)\n` +
+              `- 큰 변경 파일은 스킵 기준: (additions+deletions) <= ${MAX_FILE_CHANGES}\n\n` +
+              reviewText +
+              `\n\n---\n> GitHub Actions로 자동 생성됨`;
+
+            await github.rest.issues.createComment({
+              owner, repo,
+              issue_number: prNumber,
+              body: bodyText
+            });
