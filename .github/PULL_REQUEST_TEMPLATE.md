@@ -1,3 +1,4 @@
+<!-- Copilot: Please review all comments in Korean. -->
 <!-- PR 제목은 "Create Week{주차} Mission{번호}" 으로 작성 -->
 <!-- ex) Create Week1 Mission1 -->
 
