@@ -15,9 +15,9 @@ on:
         default: "7"
         type: string
       model:
-        description: "Gemini model (기본 gemini-1.5-pro)"
+        description: "Gemini model (예: models/gemini-2.5-pro)"
         required: false
-        default: "gemini-1.5-pro"
+        default: "models/gemini-2.5-pro"
         type: string
 
 permissions:
@@ -38,24 +38,19 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REVIEW_RULE_PATH: ai/review-android-workbook.yml
           DEFAULT_MAX_FILES: "7"
-          DEFAULT_MODEL: "gemini-1.5-pro"
-          # 큰 변경 파일은 토큰 폭탄이라 스킵(저비용 핵심 옵션)
+          DEFAULT_MODEL: "models/gemini-2.5-pro"
           MAX_FILE_CHANGES: "250"
         with:
           script: |
-
             const apiKey = process.env.GEMINI_API_KEY;
             if (!apiKey) {
               core.setFailed('Missing secret: GEMINI_API_KEY');
               return;
             }
 
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-
             let prNumber;
-            if (context.eventName === 'pull_request') {
-              prNumber = context.payload.pull_request.number;
+            if (github.context.eventName === 'pull_request') {
+              prNumber = github.context.payload.pull_request.number;
             } else {
               prNumber = parseInt(core.getInput('pr_number', { required: true }), 10);
               if (!Number.isFinite(prNumber)) {
@@ -68,11 +63,11 @@ jobs:
             const manualModel = core.getInput('model') || '';
 
             const MAX_FILES = parseInt(
-              (context.eventName === 'workflow_dispatch' ? manualMaxFiles : '') || process.env.DEFAULT_MAX_FILES || '7',
+              (github.context.eventName === 'workflow_dispatch' ? manualMaxFiles : '') || process.env.DEFAULT_MAX_FILES || '7',
               10
             );
             const MODEL =
-              (context.eventName === 'workflow_dispatch' ? manualModel : '') || process.env.DEFAULT_MODEL || 'gemini-1.5-pro';
+              (github.context.eventName === 'workflow_dispatch' ? manualModel : '') || process.env.DEFAULT_MODEL || 'models/gemini-2.5-pro';
 
             const MAX_FILE_CHANGES = parseInt(process.env.MAX_FILE_CHANGES || '250', 10);
 
@@ -197,7 +192,7 @@ jobs:
             const reviewText = await callGemini(MODEL, prompt);
             if (!reviewText) return;
 
-            const runType = (context.eventName === 'workflow_dispatch') ? '수동 실행' : '자동 실행(PR당 1회)';
+            const runType = (github.context.eventName === 'workflow_dispatch') ? '수동 실행' : '자동 실행(PR당 1회)';
             const bodyText =
               `## 🤖 Gemini 코드리뷰 (Android/Kotlin)\n` +
               `- 실행: ${runType}\n` +
