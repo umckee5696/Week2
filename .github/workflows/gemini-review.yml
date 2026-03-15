@@ -48,9 +48,6 @@ jobs:
               return;
             }
 
-            const owner = github.context.repo.owner;
-            const repo = github.context.repo.repo;
-
             let prNumber;
             if (github.context.eventName === 'pull_request') {
               prNumber = github.context.payload.pull_request.number;
