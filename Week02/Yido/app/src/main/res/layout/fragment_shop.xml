@@ -21,11 +21,13 @@
 
         
         <LinearLayout
+            android:id="@+id/shop_ll_tab_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/shop_tv_tab_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/shop_tab_all"
@@ -34,29 +36,65 @@
                 android:textStyle="bold" />
 
             <View
+                android:id="@+id/shop_view_tab_all"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="8dp"
-                android:background="@color/shop_tab_indicator" />
+                android:background="@color/shop_tab_indicator"
+                android:visibility="visible" />
         </LinearLayout>
 
         
-        <TextView
+        <LinearLayout
+            android:id="@+id/shop_ll_tab_tops"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/shop_tab_tops"
-            android:textColor="@color/shop_tab_text_inactive"
-            android:textSize="14sp"
-            android:layout_marginStart="24dp" />
+            android:orientation="vertical"
+            android:layout_marginStart="24dp">
+
+            <TextView
+                android:id="@+id/shop_tv_tab_tops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shop_tab_tops"
+                android:textColor="@color/shop_tab_text_inactive"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <View
+                android:id="@+id/shop_view_tab_tops"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/shop_tab_indicator"
+                android:visibility="invisible" />
+        </LinearLayout>
 
         
-        <TextView
+        <LinearLayout
+            android:id="@+id/shop_ll_tab_shoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/shop_tab_shoes"
-            android:textColor="@color/shop_tab_text_inactive"
-            android:textSize="14sp"
-            android:layout_marginStart="24dp" />
+            android:orientation="vertical"
+            android:layout_marginStart="24dp">
+
+            <TextView
+                android:id="@+id/shop_tv_tab_shoes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shop_tab_shoes"
+                android:textColor="@color/shop_tab_text_inactive"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <View
+                android:id="@+id/shop_view_tab_shoes"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/shop_tab_indicator"
+                android:visibility="invisible" />
+        </LinearLayout>
 
     </LinearLayout>
 
