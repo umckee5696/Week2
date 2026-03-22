@@ -1,0 +1,65 @@
+﻿> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:dataBindingGenBaseClassesDebug UP-TO-DATE
+> Task :app:generateDebugRFile UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac FAILED
+.\gradlew : 
+위치 줄:1 문자:1
++ .\gradlew assembleDebug --cons
+ole=plain > build_log.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : N 
+   otSpecified: (:String) [],   
+  RemoteException
+    + FullyQualifiedErrorId : N 
+   ativeCommandError
+ 
+FAILURE: Build failed with an ex
+ception.
+
+* What went wrong:
+Execution failed for task ':app:
+compileDebugJavaWithJavac'.
+> Could not resolve all files fo
+r configuration ':app:androidJdk
+Image'.
+   > Failed to transform core-fo
+r-system-modules.jar to match at
+tributes {artifactType=_internal
+_android_jdk_image, org.gradle.l
+ibraryelements=jar, org.gradle.u
+sage=java-runtime}.
+      > Execution failed for Jdk
+ImageTransform: C:\Users\Kee\App
+Data\Local\Android\Sdk\platforms
+\android-36\core-for-system-modu
+les.jar.
+         > jlink executable C:\U
+sers\Kee\.antigravity\extensions
+\redhat.java-1.53.0-win32-x64\jr
+e\21.0.10-win32-x86_64\bin\jlink
+.exe does not exist.
+
+* Try:
+> Run with --stacktrace option t
+o get the stack trace.
+> Run with --info or --debug opt
+ion to get more log output.
+> Run with --scan to get full in
+sights from a Build Scan (powere
+d by Develocity).
+> Get more help at https://help.
+gradle.org.
+
+BUILD FAILED in 1s
+11 actionable tasks: 1 executed, 10 up-to-date
