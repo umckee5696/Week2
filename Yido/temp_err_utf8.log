@@ -1,0 +1,1335 @@
+﻿Initialized native services in: C:\Users\Kee\.gradle\native
+Initialized jansi services in: C:\Users\Kee\.gradle\native
+The client will now receive all logging from the daemon (pid: 22932). The daemon log file: C:\Users\Kee\.gradle\daemon\9.3.1\daemon-22932.out.log
+Starting 21st build in daemon [uptime: 1 hrs 12 mins 17.805 secs, performance: 99%, GC rate: 0.00/s, heap usage: 0% of 2 GiB]
+Using 16 worker leases.
+Operational build model parameters: {requiresToolingModels=false, parallelProjectExecution=false, configureOnDemand=false, configurationCache=false, configurationCacheParallelStore=false, configurationCacheParallelLoad=true, isolatedProjects=false, parallelProjectConfiguration=false, intermediateModelCache=false, parallelToolingApiActions=false, invalidateCoupledProjects=false, modelAsProjectDependency=false, resilientModelBuilding=false}
+Now considering [C:\Users\Kee\Downloads\Android\Week02\Yido] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Resolved plugin [id: 'org.gradle.toolchains.foojay-resolver-convention', version: '1.0.0']
+Settings evaluated using settings file 'C:\Users\Kee\Downloads\Android\Week02\Yido\settings.gradle.kts'.
+Projects loaded. Root project using build file 'C:\Users\Kee\Downloads\Android\Week02\Yido\build.gradle.kts'.
+Included projects: [root project 'Yido', project ':app']
+
+> Configure project :
+Evaluating root project 'Yido' using build file 'C:\Users\Kee\Downloads\Android\Week02\Yido\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '9.1.0', apply: false]
+
+> Configure project :app
+Evaluating project ':app' using build file 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\build.gradle.kts'.
+Resolved plugin [id: 'com.android.application', version: '9.1.0']
+Build fe815258-78c4-4e30-be5c-84048d2cb463 is started
+Using default execution profile
+All projects evaluated.
+Task name matched 'compileDebugJavaWithJavac'
+Selected primary task 'compileDebugJavaWithJavac' from project :
+Adding -Xuse-inline-scopes-numbers Kotlin compiler flag for task :app:compileDebugKotlin
+Tasks to be executed: [task ':app:preBuild', task ':app:preDebugBuild', task ':app:dataBindingMergeDependencyArtifactsDebug', task ':app:generateDebugResources', task ':app:mergeDebugResources', task ':app:packageDebugResources', task ':app:processDebugNavigationResources', task ':app:parseDebugLocalResources', task ':app:dataBindingGenBaseClassesDebug', task ':app:generateDebugRFile', task ':app:compileDebugKotlin', task ':app:javaPreCompileDebug', task ':app:compileDebugJavaWithJavac']
+Tasks that were excluded: []
+Resolve mutations for :app:preBuild (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:preBuild (Thread[#1869,Execution worker Thread 10,5,main]) started.
+
+> Task :app:preBuild UP-TO-DATE
+Skipping task ':app:preBuild' as it has no actions.
+Resolve mutations for :app:preDebugBuild (Thread[#1869,Execution worker Thread 10,5,main]) started.
+:app:preDebugBuild (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:preDebugBuild UP-TO-DATE
+Skipping task ':app:preDebugBuild' as it has no actions.
+Resolve mutations for :app:dataBindingMergeDependencyArtifactsDebug (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:dataBindingMergeDependencyArtifactsDebug (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:dataBindingMergeDependencyArtifactsDebug UP-TO-DATE
+Caching disabled for task ':app:dataBindingMergeDependencyArtifactsDebug' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Skipping task ':app:dataBindingMergeDependencyArtifactsDebug' as it is up-to-date.
+Resolve mutations for :app:generateDebugResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:generateDebugResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:generateDebugResources UP-TO-DATE
+Caching disabled for task ':app:generateDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugResources' as it is up-to-date.
+Resolve mutations for :app:mergeDebugResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:mergeDebugResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:mergeDebugResources UP-TO-DATE
+Caching disabled for task ':app:mergeDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:mergeDebugResources' as it is up-to-date.
+Resolve mutations for :app:packageDebugResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:packageDebugResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:packageDebugResources UP-TO-DATE
+Caching disabled for task ':app:packageDebugResources' because:
+  Build cache is disabled
+Skipping task ':app:packageDebugResources' as it is up-to-date.
+Resolve mutations for :app:processDebugNavigationResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:processDebugNavigationResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:processDebugNavigationResources UP-TO-DATE
+Caching disabled for task ':app:processDebugNavigationResources' because:
+  Build cache is disabled
+Skipping task ':app:processDebugNavigationResources' as it is up-to-date.
+Resolve mutations for :app:parseDebugLocalResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:parseDebugLocalResources (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:parseDebugLocalResources UP-TO-DATE
+Caching disabled for task ':app:parseDebugLocalResources' because:
+  Build cache is disabled
+Skipping task ':app:parseDebugLocalResources' as it is up-to-date.
+Resolve mutations for :app:dataBindingGenBaseClassesDebug (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:dataBindingGenBaseClassesDebug (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:dataBindingGenBaseClassesDebug UP-TO-DATE
+Caching disabled for task ':app:dataBindingGenBaseClassesDebug' because:
+  Build cache is disabled
+Skipping task ':app:dataBindingGenBaseClassesDebug' as it is up-to-date.
+Resolve mutations for :app:generateDebugRFile (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:generateDebugRFile (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:generateDebugRFile UP-TO-DATE
+Caching disabled for task ':app:generateDebugRFile' because:
+  Build cache is disabled
+Skipping task ':app:generateDebugRFile' as it is up-to-date.
+Resolve mutations for :app:compileDebugKotlin (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:compileDebugKotlin (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:compileDebugKotlin UP-TO-DATE
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\main\kotlin', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\java', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\kotlin', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\java', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\main\kotlin', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\java', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\kotlin', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\java', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\main\kotlin', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\java', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\kotlin', not found
+file or directory 'C:\Users\Kee\Downloads\Android\Week02\Yido\app\src\debug\java', not found
+Custom actions are attached to task ':app:compileDebugKotlin'.
+Caching disabled for task ':app:compileDebugKotlin' because:
+  Build cache is disabled
+Skipping task ':app:compileDebugKotlin' as it is up-to-date.
+Resolve mutations for :app:javaPreCompileDebug (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:javaPreCompileDebug (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:javaPreCompileDebug UP-TO-DATE
+Caching disabled for task ':app:javaPreCompileDebug' because:
+  Build cache is disabled
+Skipping task ':app:javaPreCompileDebug' as it is up-to-date.
+Resolve mutations for :app:compileDebugJavaWithJavac (Thread[#1861,Execution worker Thread 2,5,main]) started.
+:app:compileDebugJavaWithJavac (Thread[#1861,Execution worker Thread 2,5,main]) started.
+
+> Task :app:compileDebugJavaWithJavac FAILED
+Caching disabled for JdkImageTransform: C:\Users\Kee\AppData\Local\Android\Sdk\platforms\android-36\core-for-system-modules.jar because:
+  Build cache is disabled
+Build fe815258-78c4-4e30-be5c-84048d2cb463 is closed
+.\gradlew : 
+위치 줄:1 문자:1
++ .\gradlew compileDebugJava
+WithJavac --stacktrace --inf
+o > temp_err.lo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (:Stri  
+  ng) [], RemoteException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+FAILURE: Build failed with a
+n exception.
+
+* What went wrong:
+Execution failed for task ':
+app:compileDebugJavaWithJava
+c'.
+> Could not resolve all file
+s for configuration ':app:an
+droidJdkImage'.
+   > Failed to transform cor
+e-for-system-modules.jar to 
+match attributes {artifactTy
+pe=_internal_android_jdk_ima
+ge, org.gradle.libraryelemen
+ts=jar, org.gradle.usage=jav
+a-runtime}.
+      > Execution failed for
+ JdkImageTransform: C:\Users
+\Kee\AppData\Local\Android\S
+dk\platforms\android-36\core
+-for-system-modules.jar.
+         > jlink executable 
+C:\Users\Kee\.antigravity\ex
+tensions\redhat.java-1.53.0-
+win32-x64\jre\21.0.10-win32-
+x86_64\bin\jlink.exe does no
+t exist.
+
+* Try:
+> Run with --debug option to
+ get more log output.
+> Run with --scan to get ful
+l insights from a Build Scan
+ (powered by Develocity).
+> Get more help at https://h
+elp.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExe
+cutionException: Execution f
+ailed for task ':app:compile
+DebugJavaWithJavac'.
+	at org.gradle.api.internal.
+tasks.execution.CatchExcepti
+onTaskExecuter.execute(Catch
+ExceptionTaskExecuter.java:3
+8)
+	at org.gradle.api.internal.
+tasks.execution.EventFiringT
+askExecuter$1.executeTask(Ev
+entFiringTaskExecuter.java:7
+7)
+	at org.gradle.api.internal.
+tasks.execution.EventFiringT
+askExecuter$1.call(EventFiri
+ngTaskExecuter.java:55)
+	at org.gradle.api.internal.
+tasks.execution.EventFiringT
+askExecuter$1.call(EventFiri
+ngTaskExecuter.java:52)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:209)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:204)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:66)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:166)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.call(DefaultBuildOper
+ationRunner.java:53)
+	at org.gradle.api.internal.
+tasks.execution.EventFiringT
+askExecuter.execute(EventFir
+ingTaskExecuter.java:52)
+	at org.gradle.execution.pla
+n.DefaultNodeExecutor.execut
+eLocalTaskNode(DefaultNodeEx
+ecutor.java:55)
+	at org.gradle.execution.pla
+n.DefaultNodeExecutor.execut
+e(DefaultNodeExecutor.java:3
+4)
+	at org.gradle.execution.tas
+kgraph.DefaultTaskExecutionG
+raph$InvokeNodeExecutorsActi
+on.execute(DefaultTaskExecut
+ionGraph.java:355)
+	at org.gradle.execution.tas
+kgraph.DefaultTaskExecutionG
+raph$InvokeNodeExecutorsActi
+on.execute(DefaultTaskExecut
+ionGraph.java:343)
+	at org.gradle.execution.tas
+kgraph.DefaultTaskExecutionG
+raph$BuildOperationAwareExec
+utionAction.lambda$execute$0
+(DefaultTaskExecutionGraph.j
+ava:339)
+	at org.gradle.internal.oper
+ations.CurrentBuildOperation
+Ref.with(CurrentBuildOperati
+onRef.java:84)
+	at org.gradle.execution.tas
+kgraph.DefaultTaskExecutionG
+raph$BuildOperationAwareExec
+utionAction.execute(DefaultT
+askExecutionGraph.java:339)
+	at org.gradle.execution.tas
+kgraph.DefaultTaskExecutionG
+raph$BuildOperationAwareExec
+utionAction.execute(DefaultT
+askExecutionGraph.java:328)
+	at org.gradle.execution.pla
+n.DefaultPlanExecutor$Execut
+orWorker.execute(DefaultPlan
+Executor.java:459)
+	at org.gradle.execution.pla
+n.DefaultPlanExecutor$Execut
+orWorker.run(DefaultPlanExec
+utor.java:376)
+	at org.gradle.internal.conc
+urrent.ExecutorPolicy$CatchA
+ndRecordFailures.onExecute(E
+xecutorPolicy.java:64)
+	at org.gradle.internal.conc
+urrent.AbstractManagedExecut
+or$1.run(AbstractManagedExec
+utor.java:47)
+Caused by: org.gradle.api.in
+ternal.artifacts.ivyservice.
+TypedResolveException: Could
+ not resolve all files for c
+onfiguration ':app:androidJd
+kImage'.
+	at org.gradle.api.internal.
+artifacts.ResolveExceptionMa
+pper.mapFailure(ResolveExcep
+tionMapper.java:73)
+	at org.gradle.api.internal.
+artifacts.ResolveExceptionMa
+pper.mapFailures(ResolveExce
+ptionMapper.java:65)
+	at org.gradle.api.internal.
+artifacts.configurations.Def
+aultConfiguration$DefaultRes
+olutionHost.consolidateFailu
+res(DefaultConfiguration.jav
+a:1740)
+	at org.gradle.api.internal.
+artifacts.configurations.Res
+olutionHost.rethrowFailuresA
+ndReportProblems(ResolutionH
+ost.java:75)
+	at org.gradle.api.internal.
+artifacts.configurations.Res
+olutionBackedFileCollection.
+maybeThrowResolutionFailures
+(ResolutionBackedFileCollect
+ion.java:86)
+	at org.gradle.api.internal.
+artifacts.configurations.Res
+olutionBackedFileCollection.
+visitContents(ResolutionBack
+edFileCollection.java:76)
+	at org.gradle.api.internal.
+file.AbstractFileCollection.
+getFiles(AbstractFileCollect
+ion.java:124)
+	at org.gradle.api.internal.
+file.AbstractFileCollection$
+FileCollectionElementsFactor
+y.create(AbstractFileCollect
+ion.java:226)
+	at org.gradle.api.internal.
+file.AbstractFileCollection$
+FileCollectionElementsFactor
+y.create(AbstractFileCollect
+ion.java:214)
+	at org.gradle.api.internal.
+provider.BuildableBackedProv
+ider.calculateOwnValue(Build
+ableBackedProvider.java:94)
+	at org.gradle.api.internal.
+provider.AbstractMinimalProv
+ider.calculateValue(Abstract
+MinimalProvider.java:115)
+	at org.gradle.api.internal.
+provider.TransformBackedProv
+ider.calculateOwnValue(Trans
+formBackedProvider.java:81)
+	at org.gradle.api.internal.
+provider.AbstractMinimalProv
+ider.getOrNull(AbstractMinim
+alProvider.java:105)
+	at org.gradle.api.internal.
+provider.ProviderResolutionS
+trategy$1.resolve(ProviderRe
+solutionStrategy.java:26)
+	at org.gradle.api.internal.
+file.collections.ProviderBac
+kedFileCollection.visitChild
+ren(ProviderBackedFileCollec
+tion.java:63)
+	at org.gradle.api.internal.
+file.CompositeFileCollection
+.visitContents(CompositeFile
+Collection.java:112)
+	at org.gradle.api.internal.
+file.AbstractFileCollection.
+visitStructure(AbstractFileC
+ollection.java:361)
+	at org.gradle.api.internal.
+file.CompositeFileCollection
+.lambda$visitContents$0(Comp
+ositeFileCollection.java:112
+)
+	at org.gradle.api.internal.
+file.collections.UnpackingVi
+sitor.add(UnpackingVisitor.j
+ava:76)
+	at org.gradle.api.internal.
+file.collections.UnpackingVi
+sitor.add(UnpackingVisitor.j
+ava:91)
+	at org.gradle.api.internal.
+file.DefaultFileCollectionFa
+ctory$ResolvingFileCollectio
+n.visitChildren(DefaultFileC
+ollectionFactory.java:311)
+	at org.gradle.api.internal.
+file.CompositeFileCollection
+.visitContents(CompositeFile
+Collection.java:112)
+	at org.gradle.api.internal.
+file.AbstractFileCollection.
+visitStructure(AbstractFileC
+ollection.java:361)
+	at org.gradle.api.internal.
+file.CompositeFileCollection
+.lambda$visitContents$0(Comp
+ositeFileCollection.java:112
+)
+	at org.gradle.api.internal.
+tasks.PropertyFileCollection
+.visitChildren(PropertyFileC
+ollection.java:48)
+	at org.gradle.api.internal.
+file.CompositeFileCollection
+.visitContents(CompositeFile
+Collection.java:112)
+	at org.gradle.api.internal.
+file.AbstractFileCollection.
+visitStructure(AbstractFileC
+ollection.java:361)
+	at org.gradle.internal.fing
+erprint.impl.DefaultFileColl
+ectionSnapshotter.snapshot(D
+efaultFileCollectionSnapshot
+ter.java:48)
+	at org.gradle.internal.exec
+ution.impl.DefaultInputFinge
+rprinter$InputCollectingVisi
+tor.visitInputFileProperty(D
+efaultInputFingerprinter.jav
+a:151)
+	at org.gradle.api.internal.
+tasks.execution.TaskExecutio
+n.visitMutableInputs(TaskExe
+cution.java:340)
+	at org.gradle.internal.exec
+ution.impl.DefaultInputFinge
+rprinter.fingerprintInputPro
+perties(DefaultInputFingerpr
+inter.java:77)
+	at org.gradle.internal.exec
+ution.steps.AbstractCaptureS
+tateBeforeExecutionStep.capt
+ureExecutionStateWithOutputs
+(AbstractCaptureStateBeforeE
+xecutionStep.java:123)
+	at org.gradle.internal.exec
+ution.steps.AbstractCaptureS
+tateBeforeExecutionStep.lamb
+da$captureExecutionState$0(A
+bstractCaptureStateBeforeExe
+cutionStep.java:88)
+	at org.gradle.internal.exec
+ution.steps.BuildOperationSt
+ep$1.call(BuildOperationStep
+.java:38)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:209)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:204)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:66)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:166)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.call(DefaultBuildOper
+ationRunner.java:53)
+	at org.gradle.internal.exec
+ution.steps.BuildOperationSt
+ep.operation(BuildOperationS
+tep.java:35)
+	at org.gradle.internal.exec
+ution.steps.AbstractCaptureS
+tateBeforeExecutionStep.capt
+ureExecutionState(AbstractCa
+ptureStateBeforeExecutionSte
+p.java:83)
+	at org.gradle.internal.exec
+ution.steps.AbstractCaptureS
+tateBeforeExecutionStep.exec
+ute(AbstractCaptureStateBefo
+reExecutionStep.java:66)
+	at org.gradle.internal.exec
+ution.steps.AbstractCaptureS
+tateBeforeExecutionStep.exec
+ute(AbstractCaptureStateBefo
+reExecutionStep.java:46)
+	at org.gradle.internal.exec
+ution.steps.AbstractSkipEmpt
+yWorkStep.executeWithNonEmpt
+ySources(AbstractSkipEmptyWo
+rkStep.java:133)
+	at org.gradle.internal.exec
+ution.steps.AbstractSkipEmpt
+yWorkStep.execute(AbstractSk
+ipEmptyWorkStep.java:64)
+	at org.gradle.internal.exec
+ution.steps.AbstractSkipEmpt
+yWorkStep.execute(AbstractSk
+ipEmptyWorkStep.java:36)
+	at org.gradle.internal.exec
+ution.steps.legacy.MarkSnaps
+hottingInputsStartedStep.exe
+cute(MarkSnapshottingInputsS
+tartedStep.java:38)
+	at org.gradle.internal.exec
+ution.steps.LoadPreviousExec
+utionStateStep.execute(LoadP
+reviousExecutionStateStep.ja
+va:36)
+	at org.gradle.internal.exec
+ution.steps.LoadPreviousExec
+utionStateStep.execute(LoadP
+reviousExecutionStateStep.ja
+va:23)
+	at org.gradle.internal.exec
+ution.steps.HandleStaleOutpu
+tsStep.executeMutable(Handle
+StaleOutputsStep.java:77)
+	at org.gradle.internal.exec
+ution.steps.HandleStaleOutpu
+tsStep.executeMutable(Handle
+StaleOutputsStep.java:43)
+	at org.gradle.internal.exec
+ution.steps.MutableStep.exec
+ute(MutableStep.java:25)
+	at org.gradle.internal.exec
+ution.steps.AssignMutableWor
+kspaceStep.lambda$execute$0(
+AssignMutableWorkspaceStep.j
+ava:35)
+	at org.gradle.api.internal.
+tasks.execution.TaskExecutio
+n$4.withWorkspace(TaskExecut
+ion.java:305)
+	at org.gradle.internal.exec
+ution.steps.AssignMutableWor
+kspaceStep.execute(AssignMut
+ableWorkspaceStep.java:31)
+	at org.gradle.internal.exec
+ution.steps.AssignMutableWor
+kspaceStep.execute(AssignMut
+ableWorkspaceStep.java:22)
+	at org.gradle.internal.exec
+ution.steps.ChoosePipelineSt
+ep.execute(ChoosePipelineSte
+p.java:40)
+	at org.gradle.internal.exec
+ution.steps.ChoosePipelineSt
+ep.execute(ChoosePipelineSte
+p.java:23)
+	at org.gradle.internal.exec
+ution.steps.ExecuteWorkBuild
+OperationFiringStep.lambda$e
+xecute$2(ExecuteWorkBuildOpe
+rationFiringStep.java:67)
+	at org.gradle.internal.exec
+ution.steps.ExecuteWorkBuild
+OperationFiringStep.execute(
+ExecuteWorkBuildOperationFir
+ingStep.java:67)
+	at org.gradle.internal.exec
+ution.steps.ExecuteWorkBuild
+OperationFiringStep.execute(
+ExecuteWorkBuildOperationFir
+ingStep.java:39)
+	at org.gradle.internal.exec
+ution.steps.IdentityCacheSte
+p.execute(IdentityCacheStep.
+java:46)
+	at org.gradle.internal.exec
+ution.steps.IdentityCacheSte
+p.execute(IdentityCacheStep.
+java:34)
+	at org.gradle.internal.exec
+ution.steps.IdentifyStep.exe
+cute(IdentifyStep.java:44)
+	at org.gradle.internal.exec
+ution.steps.IdentifyStep.exe
+cute(IdentifyStep.java:31)
+	at org.gradle.internal.exec
+ution.impl.DefaultExecutionE
+ngine$1.execute(DefaultExecu
+tionEngine.java:68)
+	at org.gradle.api.internal.
+tasks.execution.ExecuteActio
+nsTaskExecuter.executeIfVali
+d(ExecuteActionsTaskExecuter
+.java:132)
+	at org.gradle.api.internal.
+tasks.execution.ExecuteActio
+nsTaskExecuter.execute(Execu
+teActionsTaskExecuter.java:1
+21)
+	at org.gradle.api.internal.
+tasks.execution.ProblemsTask
+PathTrackingTaskExecuter.exe
+cute(ProblemsTaskPathTrackin
+gTaskExecuter.java:41)
+	at org.gradle.api.internal.
+tasks.execution.FinalizeProp
+ertiesTaskExecuter.execute(F
+inalizePropertiesTaskExecute
+r.java:46)
+	at org.gradle.api.internal.
+tasks.execution.ResolveTaskE
+xecutionModeExecuter.execute
+(ResolveTaskExecutionModeExe
+cuter.java:51)
+	at org.gradle.api.internal.
+tasks.execution.SkipTaskWith
+NoActionsExecuter.execute(Sk
+ipTaskWithNoActionsExecuter.
+java:57)
+	at org.gradle.api.internal.
+tasks.execution.SkipOnlyIfTa
+skExecuter.execute(SkipOnlyI
+fTaskExecuter.java:74)
+	at org.gradle.api.internal.
+tasks.execution.CatchExcepti
+onTaskExecuter.execute(Catch
+ExceptionTaskExecuter.java:3
+6)
+	... 23 more
+Caused by: org.gradle.api.in
+ternal.artifacts.transform.T
+ransformException: Failed to
+ transform core-for-system-m
+odules.jar to match attribut
+es {artifactType=_internal_a
+ndroid_jdk_image, org.gradle
+.libraryelements=jar, org.gr
+adle.usage=java-runtime}.
+	at org.gradle.api.internal.
+artifacts.transform.Transfor
+mingAsyncArtifactListener$Tr
+ansformedArtifact.lambda$vis
+it$4(TransformingAsyncArtifa
+ctListener.java:256)
+	at org.gradle.internal.Try$
+Failure.ifSuccessfulOrElse(T
+ry.java:288)
+	at org.gradle.api.internal.
+artifacts.transform.Transfor
+mingAsyncArtifactListener$Tr
+ansformedArtifact.visit(Tran
+sformingAsyncArtifactListene
+r.java:248)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.ParallelReso
+lveArtifactSet$VisitingSet$S
+tartVisitAction.visitResults
+(ParallelResolveArtifactSet.
+java:100)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.ParallelReso
+lveArtifactSet$VisitingSet.v
+isit(ParallelResolveArtifact
+Set.java:69)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.ResolvedArti
+factSetResolver$1.run(Resolv
+edArtifactSetResolver.java:6
+8)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$1.execute(DefaultBuil
+dOperationRunner.java:29)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$1.execute(DefaultBuil
+dOperationRunner.java:26)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:66)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:166)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.run(DefaultBuildOpera
+tionRunner.java:47)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.ResolvedArti
+factSetResolver.visitArtifac
+ts(ResolvedArtifactSetResolv
+er.java:65)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.ResolvedArti
+factSetResolver.lambda$visit
+InUnmanagedWorkerThread$0(Re
+solvedArtifactSetResolver.ja
+va:61)
+	at org.gradle.internal.work
+.DefaultWorkerLeaseService.r
+unAsUnmanagedWorkerThread(De
+faultWorkerLeaseService.java
+:139)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.ResolvedArti
+factSetResolver.visitInUnman
+agedWorkerThread(ResolvedArt
+ifactSetResolver.java:61)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.DefaultSelec
+tedArtifactSet.visitArtifact
+s(DefaultSelectedArtifactSet
+.java:59)
+	at org.gradle.api.internal.
+artifacts.configurations.Res
+olutionResultProviderBackedS
+electedArtifactSet.visitArti
+facts(ResolutionResultProvid
+erBackedSelectedArtifactSet.
+java:52)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.SelectedArti
+factSet.visitFiles(SelectedA
+rtifactSet.java:34)
+	at org.gradle.api.internal.
+artifacts.configurations.Res
+olutionBackedFileCollection.
+visitContents(ResolutionBack
+edFileCollection.java:75)
+	... 93 more
+Caused by: org.gradle.api.in
+ternal.artifacts.transform.T
+ransformException: Execution
+ failed for JdkImageTransfor
+m: C:\Users\Kee\AppData\Loca
+l\Android\Sdk\platforms\andr
+oid-36\core-for-system-modul
+es.jar.
+	at org.gradle.api.internal.
+artifacts.transform.DefaultT
+ransformInvocationFactory.la
+mbda$createInvocation$1(Defa
+ultTransformInvocationFactor
+y.java:168)
+	at org.gradle.internal.Try$
+Failure.mapFailure(Try.java:
+279)
+	at org.gradle.api.internal.
+artifacts.transform.DefaultT
+ransformInvocationFactory.la
+mbda$createInvocation$2(Defa
+ultTransformInvocationFactor
+y.java:168)
+	at org.gradle.internal.Defe
+rrable$1.applyAndRequireNonN
+ull(Deferrable.java:65)
+	at org.gradle.internal.Defe
+rrable$1.completeAndGet(Defe
+rrable.java:61)
+	at org.gradle.internal.Defe
+rrable$1.completeAndGet(Defe
+rrable.java:61)
+	at org.gradle.api.internal.
+artifacts.transform.Transfor
+mingAsyncArtifactListener$Tr
+ansformedArtifact.finalizeVa
+lue(TransformingAsyncArtifac
+tListener.java:222)
+	at org.gradle.api.internal.
+artifacts.transform.Transfor
+mingAsyncArtifactListener$Tr
+ansformedArtifact.run(Transf
+ormingAsyncArtifactListener.
+java:160)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:66)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:166)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Executor.lambda$executeInPar
+allel$0(DefaultBuildOperatio
+nExecutor.java:102)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue$WorkerRunnable.runOper
+ation(DefaultBuildOperationQ
+ueue.java:292)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue$WorkerRunnable.doRunBa
+tch(DefaultBuildOperationQue
+ue.java:273)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue$WorkerRunnable.lambda$
+runBatch$0(DefaultBuildOpera
+tionQueue.java:258)
+	at org.gradle.internal.reso
+urces.AbstractResourceLockRe
+gistry.whileDisallowingLockC
+hanges(AbstractResourceLockR
+egistry.java:50)
+	at org.gradle.internal.work
+.DefaultWorkerLeaseService.w
+hileDisallowingProjectLockCh
+anges(DefaultWorkerLeaseServ
+ice.java:233)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue$WorkerRunnable.lambda$
+runBatch$1(DefaultBuildOpera
+tionQueue.java:258)
+	at org.gradle.internal.work
+.DefaultWorkerLeaseService.r
+unAsWorkerThread(DefaultWork
+erLeaseService.java:125)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue$WorkerRunnable.runBatc
+h(DefaultBuildOperationQueue
+.java:244)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue$WorkerRunnable.runOper
+ations(DefaultBuildOperation
+Queue.java:212)
+	at org.gradle.internal.oper
+ations.CurrentBuildOperation
+Ref.with(CurrentBuildOperati
+onRef.java:84)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue$WorkerRunnable.run(Def
+aultBuildOperationQueue.java
+:205)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Queue.waitForCompletion(Defa
+ultBuildOperationQueue.java:
+114)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Executor.executeInParallel(D
+efaultBuildOperationExecutor
+.java:115)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Executor.runAll(DefaultBuild
+OperationExecutor.java:64)
+	at org.gradle.api.internal.
+artifacts.ivyservice.resolve
+engine.artifact.ParallelReso
+lveArtifactSet$VisitingSet.v
+isit(ParallelResolveArtifact
+Set.java:66)
+	... 109 more
+Caused by: java.lang.Illegal
+ArgumentException: jlink exe
+cutable C:\Users\Kee\.antigr
+avity\extensions\redhat.java
+-1.53.0-win32-x64\jre\21.0.1
+0-win32-x86_64\bin\jlink.exe
+ does not exist.
+	at com.google.common.base.P
+reconditions.checkArgument(P
+reconditions.java:218)
+	at com.android.build.gradle
+.internal.dependency.JdkTool
+s$jlinkVersion$2.invoke(JdkI
+mageTransformDelegate.kt:113
+)
+	at com.android.build.gradle
+.internal.dependency.JdkTool
+s$jlinkVersion$2.invoke(JdkI
+mageTransformDelegate.kt:111
+)
+	at kotlin.SynchronizedLazyI
+mpl.getValue(LazyJVM.kt:86)
+	at com.android.build.gradle
+.internal.dependency.JdkTool
+s.getJlinkVersion(JdkImageTr
+ansformDelegate.kt:111)
+	at com.android.build.gradle
+.internal.dependency.JdkImag
+eTransformDelegate.makeJmodF
+ile$gradle_core(JdkImageTran
+sformDelegate.kt:95)
+	at com.android.build.gradle
+.internal.dependency.JdkImag
+eTransformDelegate.run(JdkIm
+ageTransformDelegate.kt:51)
+	at com.android.build.gradle
+.internal.dependency.JdkImag
+eTransform.transform(JdkImag
+eTransform.kt:71)
+	at org.gradle.api.internal.
+artifacts.transform.DefaultT
+ransform.transform(DefaultTr
+ansform.java:284)
+	at org.gradle.api.internal.
+artifacts.transform.Abstract
+TransformExecution$2.call(Ab
+stractTransformExecution.jav
+a:160)
+	at org.gradle.api.internal.
+artifacts.transform.Abstract
+TransformExecution$2.call(Ab
+stractTransformExecution.jav
+a:151)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:209)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:204)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:66)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:166)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.call(DefaultBuildOper
+ationRunner.java:53)
+	at org.gradle.api.internal.
+artifacts.transform.Abstract
+TransformExecution.executeWi
+thinTransformerListener(Abst
+ractTransformExecution.java:
+151)
+	at org.gradle.api.internal.
+artifacts.transform.Abstract
+TransformExecution.execute(A
+bstractTransformExecution.ja
+va:144)
+	at org.gradle.internal.exec
+ution.steps.ExecuteStep.exec
+uteInternal(ExecuteStep.java
+:110)
+	at org.gradle.internal.exec
+ution.steps.ExecuteStep.acce
+ss$000(ExecuteStep.java:47)
+	at org.gradle.internal.exec
+ution.steps.ExecuteStep$1.ca
+ll(ExecuteStep.java:64)
+	at org.gradle.internal.exec
+ution.steps.ExecuteStep$1.ca
+ll(ExecuteStep.java:61)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:209)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:204)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:66)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:166)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.call(DefaultBuildOper
+ationRunner.java:53)
+	at org.gradle.internal.exec
+ution.steps.ExecuteStep.exec
+ute(ExecuteStep.java:61)
+	at org.gradle.internal.exec
+ution.steps.ExecuteStep.exec
+ute(ExecuteStep.java:47)
+	at org.gradle.internal.exec
+ution.steps.CancelExecutionS
+tep.execute(CancelExecutionS
+tep.java:42)
+	at org.gradle.internal.exec
+ution.steps.TimeoutStep.exec
+uteWithoutTimeout(TimeoutSte
+p.java:75)
+	at org.gradle.internal.exec
+ution.steps.TimeoutStep.exec
+ute(TimeoutStep.java:55)
+11 actionable tasks: 1 executed, 10 up-to-date
+Watched directory hierarchies: [C:\Users\Kee\Downloads\Android\Week02\Yido]
+	at org.gradle.internal.exec
+ution.steps.PreCreateOutputP
+arentsStep.execute(PreCreate
+OutputParentsStep.java:51)
+	at org.gradle.internal.exec
+ution.steps.PreCreateOutputP
+arentsStep.execute(PreCreate
+OutputParentsStep.java:29)
+	at org.gradle.internal.exec
+ution.steps.BroadcastChangin
+gOutputsStep.execute(Broadca
+stChangingOutputsStep.java:6
+2)
+	at org.gradle.internal.exec
+ution.steps.BroadcastChangin
+gOutputsStep.execute(Broadca
+stChangingOutputsStep.java:2
+7)
+	at org.gradle.internal.exec
+ution.steps.CaptureOutputsAf
+terExecutionStep.execute(Cap
+tureOutputsAfterExecutionSte
+p.java:69)
+	at org.gradle.internal.exec
+ution.steps.CaptureOutputsAf
+terExecutionStep.execute(Cap
+tureOutputsAfterExecutionSte
+p.java:46)
+	at org.gradle.internal.exec
+ution.steps.NoInputChangesSt
+ep.execute(NoInputChangesSte
+p.java:30)
+	at org.gradle.internal.exec
+ution.steps.NoInputChangesSt
+ep.execute(NoInputChangesSte
+p.java:21)
+	at org.gradle.internal.exec
+ution.steps.BuildCacheStep.e
+xecuteWithoutCache(BuildCach
+eStep.java:192)
+	at org.gradle.internal.exec
+ution.steps.BuildCacheStep.l
+ambda$execute$1(BuildCacheSt
+ep.java:76)
+	at org.gradle.internal.Eith
+er$Right.fold(Either.java:17
+6)
+	at org.gradle.internal.exec
+ution.caching.CachingState.f
+old(CachingState.java:62)
+	at org.gradle.internal.exec
+ution.steps.BuildCacheStep.e
+xecute(BuildCacheStep.java:7
+4)
+	at org.gradle.internal.exec
+ution.steps.BuildCacheStep.e
+xecute(BuildCacheStep.java:4
+9)
+	at org.gradle.internal.exec
+ution.steps.NeverUpToDateSte
+p.execute(NeverUpToDateStep.
+java:34)
+	at org.gradle.internal.exec
+ution.steps.NeverUpToDateSte
+p.execute(NeverUpToDateStep.
+java:22)
+	at org.gradle.internal.exec
+ution.steps.legacy.MarkSnaps
+hottingInputsFinishedStep.ex
+ecute(MarkSnapshottingInputs
+FinishedStep.java:37)
+	at org.gradle.internal.exec
+ution.steps.legacy.MarkSnaps
+hottingInputsFinishedStep.ex
+ecute(MarkSnapshottingInputs
+FinishedStep.java:27)
+	at org.gradle.internal.exec
+ution.steps.ResolveNonIncrem
+entalCachingStateStep.execut
+eDelegate(ResolveNonIncremen
+talCachingStateStep.java:50)
+	at org.gradle.internal.exec
+ution.steps.AbstractResolveC
+achingStateStep.execute(Abst
+ractResolveCachingStateStep.
+java:71)
+	at org.gradle.internal.exec
+ution.steps.AbstractResolveC
+achingStateStep.execute(Abst
+ractResolveCachingStateStep.
+java:39)
+	at org.gradle.internal.exec
+ution.steps.ValidateStep.exe
+cute(ValidateStep.java:64)
+	at org.gradle.internal.exec
+ution.steps.ValidateStep.exe
+cute(ValidateStep.java:42)
+	at org.gradle.internal.exec
+ution.steps.AbstractCaptureS
+tateBeforeExecutionStep.exec
+ute(AbstractCaptureStateBefo
+reExecutionStep.java:77)
+	at org.gradle.internal.exec
+ution.steps.AbstractCaptureS
+tateBeforeExecutionStep.exec
+ute(AbstractCaptureStateBefo
+reExecutionStep.java:46)
+	at org.gradle.internal.exec
+ution.steps.legacy.MarkSnaps
+hottingInputsStartedStep.exe
+cute(MarkSnapshottingInputsS
+tartedStep.java:38)
+	at org.gradle.internal.exec
+ution.steps.AssignImmutableW
+orkspaceStep.executeInWorksp
+ace(AssignImmutableWorkspace
+Step.java:260)
+	at org.gradle.internal.exec
+ution.steps.AssignImmutableW
+orkspaceStep.lambda$execute$
+0(AssignImmutableWorkspaceSt
+ep.java:150)
+	at org.gradle.internal.exec
+ution.steps.AssignImmutableW
+orkspaceStep.lambda$execute$
+1(AssignImmutableWorkspaceSt
+ep.java:148)
+	at org.gradle.internal.exec
+ution.workspace.impl.CacheBa
+sedImmutableWorkspaceProvide
+r$CacheContainer.lambda$with
+FileLock$0(CacheBasedImmutab
+leWorkspaceProvider.java:178
+)
+	at org.gradle.cache.interna
+l.LockOnDemandCrossProcessCa
+cheAccess.withFileLock(LockO
+nDemandCrossProcessCacheAcce
+ss.java:90)
+	at org.gradle.cache.interna
+l.DefaultCacheCoordinator.wi
+thFileLock(DefaultCacheCoord
+inator.java:226)
+	at org.gradle.cache.interna
+l.DefaultPersistentDirectory
+Store.withFileLock(DefaultPe
+rsistentDirectoryStore.java:
+147)
+	at org.gradle.cache.interna
+l.DefaultCacheFactory$Refere
+nceTrackingCache.withFileLoc
+k(DefaultCacheFactory.java:2
+03)
+	at org.gradle.internal.exec
+ution.workspace.impl.CacheBa
+sedImmutableWorkspaceProvide
+r$CacheContainer.withFileLoc
+k(CacheBasedImmutableWorkspa
+ceProvider.java:175)
+	at org.gradle.internal.exec
+ution.workspace.impl.CacheBa
+sedImmutableWorkspaceProvide
+r$2.withWorkspaceLock(CacheB
+asedImmutableWorkspaceProvid
+er.java:155)
+	at org.gradle.internal.exec
+ution.steps.AssignImmutableW
+orkspaceStep.execute(AssignI
+mmutableWorkspaceStep.java:1
+46)
+	at org.gradle.internal.exec
+ution.steps.AssignImmutableW
+orkspaceStep.execute(AssignI
+mmutableWorkspaceStep.java:9
+2)
+	at org.gradle.internal.exec
+ution.steps.ChoosePipelineSt
+ep.execute(ChoosePipelineSte
+p.java:38)
+	at org.gradle.internal.exec
+ution.steps.ChoosePipelineSt
+ep.execute(ChoosePipelineSte
+p.java:23)
+	at org.gradle.internal.exec
+ution.steps.ExecuteWorkBuild
+OperationFiringStep.lambda$e
+xecute$0(ExecuteWorkBuildOpe
+rationFiringStep.java:53)
+	at org.gradle.internal.exec
+ution.steps.BuildOperationSt
+ep$1.call(BuildOperationStep
+.java:38)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:209)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$CallableBuildOperatio
+nWorker.execute(DefaultBuild
+OperationRunner.java:204)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:66)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner$2.execute(DefaultBuil
+dOperationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:166)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.execute(DefaultBuildO
+perationRunner.java:59)
+	at org.gradle.internal.oper
+ations.DefaultBuildOperation
+Runner.call(DefaultBuildOper
+ationRunner.java:53)
+	at org.gradle.internal.exec
+ution.steps.BuildOperationSt
+ep.operation(BuildOperationS
+tep.java:35)
+	at org.gradle.internal.exec
+ution.steps.ExecuteWorkBuild
+OperationFiringStep.lambda$e
+xecute$1(ExecuteWorkBuildOpe
+rationFiringStep.java:51)
+	at org.gradle.internal.exec
+ution.steps.ExecuteWorkBuild
+OperationFiringStep.execute(
+ExecuteWorkBuildOperationFir
+ingStep.java:51)
+	at org.gradle.internal.exec
+ution.steps.ExecuteWorkBuild
+OperationFiringStep.execute(
+ExecuteWorkBuildOperationFir
+ingStep.java:39)
+	at org.gradle.internal.exec
+ution.steps.IdentityCacheSte
+p.execute(IdentityCacheStep.
+java:46)
+	at org.gradle.internal.exec
+ution.steps.IdentityCacheSte
+p.executeInCache(IdentityCac
+heStep.java:80)
+	at org.gradle.internal.exec
+ution.steps.IdentityCacheSte
+p.lambda$executeDeferred$0(I
+dentityCacheStep.java:60)
+	at org.gradle.cache.Cache.l
+ambda$get$0(Cache.java:32)
+	at org.gradle.cache.ManualE
+victionInMemoryCache.get(Man
+ualEvictionInMemoryCache.jav
+a:30)
+	at org.gradle.cache.interna
+l.DefaultCrossBuildInMemoryC
+acheFactory$CrossBuildCacheR
+etainingDataFromPreviousBuil
+d.get(DefaultCrossBuildInMem
+oryCacheFactory.java:303)
+	at org.gradle.cache.Cache.g
+et(Cache.java:32)
+	at org.gradle.internal.exec
+ution.steps.IdentityCacheSte
+p.lambda$executeDeferred$1(I
+dentityCacheStep.java:58)
+	at org.gradle.internal.Defe
+rrable$3.completeAndGet(Defe
+rrable.java:120)
+	... 133 more
+
+
+BUILD FAILED in 3s

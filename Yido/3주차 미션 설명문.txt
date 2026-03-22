@@ -1,0 +1,529 @@
+# Chapter 3. 대량의 데이터 다루기(RecyclerView)
+
+<aside>
+💡 **워크북 가이드라인**
+1️⃣ 이번 주차 강의를 효과적으로 수강하기 위해서는 지난 주차 내용에 대한 복습이 꼭 필요합니다. 이전 단계의 개념이 이번 학습의 기초가 되니, 잠시 시간을 내어 훑어봐 주시기 바랍니다!
+2️⃣ 주차별 Esssential은 권장이 아니라 필독입니다~
+3️⃣ Essential에서 자세히 다루지 않은 내용은 레퍼런스 확인하셔서 살을 붙이시면 됩니다!
+
+</aside>
+
+---
+
+---
+
+## 📝 학습 목표
+
+---
+
+- ListView가 무엇이고, 어느 때 사용하는 것인지 이해할 수 있다.
+- RecyclerView에서 Adapter가 어떤 역할을 하는지 이해하고, 활용할 수 있다.
+- ListView의 한계점을 이해하고, RecyclerView가 ListView 대비 어떤 장점이 있는지 이해하고 활용할 수 있다.
+
+## ⚠️ 스터디 진행 방법
+
+---
+
+1. 스터디를 진행하기 전, 워크북 내용들을 모두 채우고 스터디에서는 서로 모르는 내용들을 공유해주세요.
+2. 미션은 워크북 내용들을 모두 완료하고 나서 스터디 전/후로 진행해보세요.
+3. 다음주 스터디를 진행하기 전, 지난주 미션을 서로 공유해서 상호 피드백을 진행하시면 됩니다.
+
+## 📸 스터디 인증샷
+
+---
+
+*매주 스터디 대표자 1명이 스터디 인증샷을 🌟**필수**🌟 제출해주세요!*
+
+[]()
+
+## 🕕 3주차 Essential
+
+---
+
+## 💫ListView vs RecyclerView
+
+![image.png](attachment:e9d85733-e353-4682-ad40-8436b6cef2a1:image.png)
+
+이번 챕터에서는 안드로이드에서 **목록 형태의 데이터를 효율적으로 표시**하는 **`RecyclerView`**에 대해 배워보겠습니다.
+
+ **Fragment**가 **Activity**를 보완하며 등장했듯이, **`RecyclerView`**는 기존 **`ListView`**의 한계를 극복하기 위해 탄생했습니다.
+
+간단하게 `ListView`에 대해 설명하자면, `ListView`는 안드로이드 초창기부터 사용되던 **목록 뷰**입니다. 간단한 목록을 표시하기에 용이했지만, **스크롤할 때마다 아이템 뷰를 새로 생성하는 비효율적인 구조**를 가지고 있었습니다. 
+
+이전 챕터에서 예시로 든 것처럼, 만약 1000명의 유저 목록을 한 번에 리스트로 표현한다면, 이는 매우 큰 부담을 야기하는 것처럼 말입니다. 이처럼 이는 앱의 성능을 저하시키고 메모리 사용량을 증가시키는 주요 원인이었습니다.
+
+이러한 문제를 해결하기 위해 **`RecyclerView`**가 등장했고, 그 이름처럼 **뷰를 재활용(Recycle)**하는 혁신적인 방식을 통해 메모리 사용량을 줄였습니다.
+
+## RecyclerView의 구성 요소
+
+**RecyclerView**의 대표적인 구성 요소로는 **`Adapter`**, **`ViewHolder`**, **`LayoutManager`**가 존재합니다.
+
+![image.png](attachment:3f422c80-1935-427f-a425-fddce7172b30:image.png)
+
+### 1. Adapter (RecyclerView.Adapter)
+
+**`Adapter`**는 이전 **ViewPager2**에 나온 것처럼 **데이터와 RecyclerView를 연결하는 다리 역할**을 수행합니다.
+
+ **RecyclerView**는 자체적으로 **`RecyclerView.Adapter`**라는 **추상 클래스를 제공**하며, 여러분은 이 **클래스를 상속**받아 직접 어댑터를 구현해야 합니다. 이때 다음 **세 가지 핵심 메서드를 오버라이드** 합니다.
+
+- `onCreateViewHolder()`: **ViewHolder 객체**를 생성합니다. 이 메서드는 화면에 아이템이 처음 표시될 때 필요한 만큼만 호출됩니다.
+- `onBindViewHolder()`: 특정 위치(position)의 데이터를 **ViewHolder**의 뷰에 연결합니다. 이 메서드는 아이템이 화면에 나타날 때마다 호출되어 데이터를 업데이트합니다.
+- `getItemCount()`: **RecyclerView**가 표시할 **전체 아이템의 개수**를 반환합니다.
+
+실제 예를 들어보겠습니다.
+
+![image.png](attachment:3f7243a4-033b-40d2-ad3d-9e9e28daedc1:fdef9e99-bdd2-4853-b870-52aa696cde13.png)
+
+위 이미지는 **RecyclerView**를 이용해 친구 목록을 구현한 실제 예시입니다. 전체 **빨간색 사각형**은 세 명의 친구 목록을 담고 있는 **RecyclerView**이며, 각 **친구 한 명의 정보는 파란색 사각형**으로 표시된 **하나의 아이템 뷰**입니다.
+
+이 목록을 화면에 표시하기 위해 **RecyclerView**는 다음과 같은 과정을 거칩니다.
+
+1. **데이터 전달**: 먼저, 친구 목록에 대한 **3개의 데이터**(이미지, 닉네임, 상태 메시지)가 **Adapter로 전달**됩니다. 이 때 **`getItemCount()`** 는 **3**이라는 값을 반환합니다.
+2. **뷰 생성**: **RecyclerView**가 처음 화면에 나타나면, **`onCreateViewHolder()`**가 호출되어, **파란색 사각형에 해당하는 뷰 3개(ViewHolder)**를 생성합니다. 그러나 아직 이 상태는 껍데기만 있는 상태입니다**.**
+3. **데이터 바인딩:** 이어서 **`onBindViewHolder()`**가 호출됩니다.  **Adapter로 전달된 데이터를 View와 연결**하여 화면에 보여줍니다. 그러면 최종적으로 위처럼 각 뷰마다 data값이 매칭되어 보여집니다.
+
+그런데 여기서 한 가지 의문이 들 수 있습니다. 뷰를 생성하고 데이터를 연결한다면 **View** 클래스를 쓰면 될 텐데, 왜 굳이 **ViewHolder**라는 별도의 클래스를 사용하는 걸까요?
+
+**`ViewHolder`**의 역할은 다음과 같습니다.
+
+### 2. ViewHolder
+
+**ViewHolder**는 **아이템 뷰를 재활용하기 위해 뷰를 저장하고 관리하는 객체**입니다.  
+
+![image.png](attachment:e84b8bf5-1ab6-441a-9449-d5ecefec77c1:image.png)
+
+**RecyclerView**는 수백 개의 아이템을 표시할 때 모든 뷰를 한꺼번에 생성하지 않습니다. 대신, **화면에 보이는 소수의 뷰만 만들고** 이 뷰를 **`ViewHolder`**라는 상자에 담아둡니다.
+
+사용자가 스크롤을 해서 화면 밖으로 뷰가 사라지면, 이 뷰는 파괴되는 대신 `ViewHolder`에 담겨 재활용 대기 상태가 됩니다. 
+
+새로운 데이터를 표시해야 할 때, `RecyclerView`는 대기 중이던 `ViewHolder`를 가져와 **`onBindViewHolder`** 메서드를 통해 새로운 데이터만 바꿔 넣고 다시 화면에 보여줍니다. 이 덕분에 **뷰를 매번 새로 만들 필요가 없어** 성능이 크게 향상됩니다.
+
+### 3. LayoutManager
+
+**LayoutManager**는 **RecyclerView**의 아이템들이 **어떤 모양으로 배열될지 결정하는 역할**을 합니다.  즉, 아이템의 레이아웃과 스크롤 방향을 관리하는 역할을 수행합니다.
+
+![image.png](attachment:9e5e4cd7-4517-4279-8aa6-40a47be9015d:image.png)
+
+**RecyclerView**는 **LayoutManager**를 통해 **LinearLayout**, **GridLayout**, **StaggeredGridLayout** 등 다양한 형태의 목록을 유연하게 구현할 수 있습니다.
+
+## ListView? 아니 RecyclerView!
+
+**RecyclerView**의 핵심은 **재활용** 입니다.
+
+![image.png](attachment:beb5fef2-53a1-4ac8-b384-92ed27e419ed:image.png)
+
+**RecyclerView**를 쓰는 가장 큰 이유는 **성능과 메모리 효율성** 때문입니다.
+
+**ListView**는 사용자가 스크롤을 할 때 화면 밖으로 사라지는 뷰를 **삭제**하고, 새롭게 나타나는 뷰를 **계속 생성**하는 과정을 반복합니다. 
+
+아이템이 100개, 1,000개가 넘는 경우 이 과정은 앱에 큰 부담을 주어 **ANR(Application Not Responding)**과 같은 성능 문제를 일으킬 수 있습니다.
+
+반면, **RecyclerView**는 **화면에 보이는 만큼의 뷰만 생성**하고, 스크롤로 인해 화면 밖으로 나간 뷰를 **재활용**합니다. 재활용된 뷰에 **새로운 데이터만 바인딩**하여 뷰 객체 자체를 다시 사용하는 것이죠.
+
+## 실제 코드로 RecyclerView 따라해보기
+
+지금까지 배운 것처럼 **`RecyclerView`**는 성능과 메모리 효율성 측면에서 매우 유용합니다. 
+
+그러나 이전 챕터에서 다루었던 단순한 `TextView`나 `Button`처럼 XML에 위젯 하나를 생성하고 바로 사용하는 다른 뷰들과 달리, `Adapter`, `ViewHolder` 등 구현해야 할 요소가 많아 다소 복잡하게 느껴질 수 있습니다.
+
+**하지만 걱정하지 마세요!!** 모든 개념은 결국 코드로 완성됩니다. 앞에서 배운 `RecyclerView`의 핵심 구성 요소를 머릿속에 떠올리면서, 지금부터 **XML 레이아웃부터 `Adapter` 클래스까지** 단계별로 직접 코드를 작성해 보겠습니다.
+
+필자는 RecyclerView를 만들 때 아래의 단계를 따릅니다.
+
+<aside>
+🪜
+
+1. RecyclerView가 들어가는 XML Layout 작성 (Activity or Fragment)
+2. RecyclerView의 item으로 들어갈 XML Layout 작성
+3. RecyclerView에 전달할 Data class 작성
+4. RecyclerView Adapter 작성
+5. RecyclerView가 있는 Fragment or Activity 클래스(.kt)에서 해당 RecyclerView 및 Adapter 초기화 코드 작성
+</aside>
+
+그럼 총 **2개의 XML 파일**과 3**개의 .kt 파일**을 작성하게 됩니다.
+
+우선, XML Layout부터 작성해보겠습니다.
+
+### 1. RecyclerView가 포함되는 XML Layout 작성 (fragment_friend_list.xml)
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/friend_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+```
+
+위 코드 중 **RecyclerView** 위젯만 보시면 됩니다. 
+
+완성된 화면은 아래와 같습니다.
+
+![image.png](attachment:9ccded8e-ed1f-4fa6-9e3a-929ee51888dc:image.png)
+
+### 2. RecyclerView의 item으로 들어갈 XML Layout 작성(item_friend.xml)
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="#FFFFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/status_guide_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="63dp" />
+
+        <!-- 프로필 이미지 -->
+        <ImageView
+            android:id="@+id/friend_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="프로필 이미지"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_friend_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 친구 이름 텍스트 뷰 -->
+        <TextView
+            android:id="@+id/friend_tv_name"
+            style="@style/freesentation5_24sp_title"
+            android:textSize="22sp"
+            android:layout_width="115dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="4dp"
+            android:scaleType="centerCrop"
+            android:text="뽀둥이"
+            app:layout_constraintStart_toEndOf="@id/friend_profile"
+            app:layout_constraintTop_toTopOf="@id/friend_profile"
+            app:layout_constraintTop_toBottomOf="@id/friend_profile"/>
+
+        <!-- 세로 선 -->
+        <View
+            android:id="@+id/friend_divider"
+            android:layout_width="1dp"
+            android:layout_height="36dp"
+            android:background="#ECECEC"
+            app:layout_constraintBottom_toBottomOf="@id/friend_tv_name"
+            app:layout_constraintStart_toEndOf="@id/friend_tv_name"
+            app:layout_constraintTop_toTopOf="@id/friend_tv_name" />
+
+        <TextView
+            android:id="@+id/friend_tv_status"
+            style="@style/freesentation5_16sp_icon"
+            android:text="(자기소개)"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+
+            app:layout_constraintStart_toEndOf="@id/friend_divider"
+            app:layout_constraintEnd_toStartOf="@id/status_guide_line"
+            app:layout_constraintTop_toTopOf="@id/friend_tv_name"
+            app:layout_constraintBottom_toBottomOf="@id/friend_tv_name"
+
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:breakStrategy="simple"
+            android:hyphenationFrequency="none"
+            android:includeFontPadding="false" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/friend_visit_btn"
+            android:layout_width="60dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_friend_visit_btn"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:backgroundTint="@null"
+            app:iconGravity="textStart"
+            app:iconTint="@null"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 방문 텍스트 -->
+        <TextView
+            android:id="@+id/friend_visit_tv"
+            style="@style/freesentation5_11sp_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:text="방문하기"
+            android:gravity="center"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/friend_visit_btn"
+            app:layout_constraintEnd_toEndOf="@+id/friend_visit_btn"
+            app:layout_constraintStart_toStartOf="@id/friend_visit_btn"
+            app:layout_constraintTop_toTopOf="@id/friend_visit_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
+```
+
+위는 RecyclerView에서 하나의 item에 해당하는 코드입니다.
+
+필자는 이미지, 닉네임, 자기소개 등 여러 내용을 넣기 위해 뷰를 중첩으로 사용했지만, 목적에 따라 자유롭게 작성하면 됩니다.
+
+완성된 화면은 아래와 같습니다.
+
+![image.png](attachment:4f3f551a-4418-4d1d-9c32-3ea5d50fb556:image.png)
+
+### 3. Data class 작성(FriendData.kt)
+
+```kotlin
+data class FriendData(
+    val name: String = "", //이름
+    val status: String? = null, //자기소개
+    val profileImage: String? = null, //프로필이미지
+)
+```
+
+다음에는 Adapter에게 전달할 Data Class를 작성합니다. 해당 Class의 내용이 `onBindViewHolder()` 를 통해, 바인딩 됩니다.
+
+### 4. RecyclerView Adapter 작성(FriendAdapter.kt)
+
+```kotlin
+class FriendAdapter(private var friendList: MutableList<FriendData>,
+			private val onVisitClicked: (FriendData) -> Unit
+	) : 
+	RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+	
+	}
+```
+
+**FriendAdapter** 클래스를 만들고, **RecyclerView.Adapter**를 상속받습니다. <> 안에는 **ViewHolder**를 넣어줍니다.
+
+또한, Adapter에는 **바인딩을 진행할 Data Class List**와 방문하기 버튼을 누를 시 수행할 **콜백 함수**를 인자로 넣습니다.
+
+![image.png](attachment:2255115b-5294-4cd6-ad46-bfb1e039a6e7:image.png)
+
+처음 Adapter 클래스를 생성하면 오류 메시지가 뜨는데, 이는 **RecyclerView.Adapter를 상속**하면서 필수로 오버라이딩 해야 할 메서드를 구현하지 않았기 때문입니다. 
+
+이때는 오류 메시지에 커서를 대고, **implement members**를 누르면 자동으로 메서드들이 생성됩니다.
+
+![image.png](attachment:a47aac32-d813-4050-925c-1b21b71ec6a0:image.png)
+
+![image.png](attachment:1aca9a8e-fd69-43c5-ad92-faad9c780225:image.png)
+
+그런데, 이렇게 하면 **ERROR**가 뜬 것을 볼 수 있습니다. 이는 **ViewHolder** 클래스를 생성하지 않았기 때문입니다. ****
+
+```kotlin
+inner class FriendViewHolder(val binding: ItemFriendBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(friend: FriendData) {
+
+            binding.friendTvName.text = friend.name
+            binding.friendTvStatus.text = friend.status
+            binding.friendVisitBtn.setOnClickListener {
+                onVisitClicked(friend)
+                }
+            }
+        }
+```
+
+<aside>
+💡
+
+학습하는 단계에서는 inner class로 만들지만, ViewHolder는 위에서 설명한 내용대로 **재활용되는 뷰**입니다. 때문에 컴포넌트라는 개념으로 inner class가 아닌 **새로운 class**로 만드시는 것을 추천드립니다 :)
+
+</aside>
+
+**Inner class**로 **ViewHolder** 클래스를 만들고 생성자로는 처음 빌드파일에서 선언했던 **viewBinding (ItemFriendBinding)**을 사용해서 넣습니다. 
+
+**item_friend xml 파일을 생성을 먼저 한 이유도 여기에 있습니다.**
+
+파일이 생성된 뒤에 **binding**으로 넣을 수 있으므로, 이를 통해 **viewHolder랑 item_friend.xml을 연결**합니다.
+
+그리고 생성된 **뷰에 실제 data를 넣기 위해**, bind 함수를 정의하여, 값을 넣어줍니다. 
+
+그 후, `onCreateViewHolder()`**,**`onBindViewHolder()`, `getItemCount()` 를 오버라이딩 합니다.
+
+```kotlin
+override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
+        val binding = ItemFriendBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent, false)
+        return FriendViewHolder(binding)
+    }
+```
+
+`onCreateViewHolder()` 를 통해, 레이아웃을 정의해 View Holder 객체를 리턴하도록 정의합니다.  이 경우, **`item_friend.xml`** 을 inflate 해야 코드로 변환할 수 있기 때문에, **LayoutInflater**를 이용합니다.
+
+```kotlin
+override fun onBindViewHolder(holder: FriendAdapter.FriendViewHolder, position: Int) {
+        val nowFriend = friendList[position]
+        holder.bind(nowFriend)
+    }
+```
+
+`onBindViewHolder()` 를 통해, 생성된 View랑 data class를 binding 시켜줍니다. 이미 ViewHolder 부분에 **`fun bind()`** 를 정의했기에, 이를 이용해 간단히 바인딩을 시켜줍니다.
+
+```kotlin
+ override fun getItemCount(): Int {
+        return friendList.size
+    }
+```
+
+`getItemCount()` 는 **아이템이 총 몇 개** 있는지 알려줘야 하기 때문에, Adapter의 인자로 넣은 **friendList.size**를 return 값으로 정의합니다.
+
+마지막으로, ERROR로 표시된 **ViewHolder** 부분을 정의한 **FriendViewHolder**로 수정합니다.
+
+전체 코드는 아래와 같습니다.
+
+```kotlin
+package com.example.umc_9th
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.umc_9th.databinding.ItemFriendBinding
+
+class FriendAdapter(private var friendList: MutableList<FriendData>,
+                    private val onVisitClicked: (FriendData) -> Unit)
+    : RecyclerView.Adapter<FriendAdapter.FriendViewHolder>() {
+
+    inner class FriendViewHolder(val binding: ItemFriendBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(friend: FriendData) {
+
+            binding.friendTvName.text = friend.name
+            binding.friendTvStatus.text = friend.status
+            binding.friendVisitBtn.setOnClickListener {
+                onVisitClicked(friend)
+                }
+            }
+        }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendViewHolder {
+        val binding = ItemFriendBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent, false)
+        return FriendViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: FriendAdapter.FriendViewHolder, position: Int) {
+        val nowFriend = friendList[position]
+        holder.bind(nowFriend)
+    }
+
+    override fun getItemCount(): Int {
+        return friendList.size
+    }
+
+}
+```
+
+### 5. RecyclerView 및 Adapter 초기화 코드 작성(FriendListFragment.kt)
+
+```kotlin
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 1. 표시할 데이터 목록 생성
+        val friendDataList = mutableListOf()
+        
+        //기타 코드...
+
+        // 2. 어댑터 인스턴스 생성 및 RecyclerView에 연결
+        val adapter = FriendAdapter(friendDataList, 
+        onVisitClicked = { friend ->
+            Toast.makeText(context, "${friend.name}에게 방문하기", Toast.LENGTH_SHORT).show()
+        }) 
+
+        // 3. 어댑터 연결 및 LayoutManager 설정
+        binding.friendRecyclerview.adapter = adapter
+        binding.friendRecyclerview.layoutManager = LinearLayoutManager(requireContext())
+    }
+```
+
+마지막으로, 정의한 **adapter**와 **data**를 연결해줍니다.
+
+## 🔥 미션
+
+---
+
+**RecyclerView**는 초심자에게 내용이 많기도 하며, 어려워 미션 양을 소량으로 준비하였습니다.
+
+하지만 이 **RecyclerView**는 어느 프로젝트를 진행하던지 반드시 사용하게 됩니다. 그에 따라 터치 이벤트도 반드시 들어가기 때문에 주니어 챌린저 분들도 시간 여유가 된다면 시니어 미션은 꼭 수행해 보시길 바랍니다.
+
+## ✅ 3주차 실전미션
+
+---
+
+<aside>
+💡
+
+실제 Nike 앱을 한 번 만들어봐요! 
+
+1. **RecyclerView 구현하기**
+    - [ ]  **홈 화면** 중앙 배너 이미지 아래에 **상품 목록을 표시하는 RecyclerView**를 추가하기
+    - [ ]  **구매하기** 화면의 **상품 아이템 목록**을 **RecyclerView**로 구현하기
+        
+        <aside>
+        💡
+        
+        **GridLayoutManager 사용!**
+        
+        </aside>
+        
+    - [ ]  **위시리스트** 화면에 담긴 **아이템 목록**을 **RecyclerView**로 구현하기 (아이템은 **더미 데이터**로 추가하며, 추후 데이터베이스 챕터 미션에서 연동 예정)
+    
+    ![image.png](attachment:71fe8a34-3ec8-49a5-9766-843745906120:image.png)
+    
+</aside>
+
+<aside>
+💡
+
+실제 Nike 앱을 한 번 만들어봐요! 
+
+1. **RecyclerView 구현하기**
+    - [ ]  **홈 화면** 중앙 배너 이미지 아래에 **상품 목록을 표시하는 RecyclerView**를 추가하기
+    - [ ]  **구매하기** 화면의 **상품 아이템 목록**을 **RecyclerView**로 구현하기
+        
+        <aside>
+        💡
+        
+        **GridLayoutManager 사용!**
+        
+        </aside>
+        
+    - [ ]  **위시리스트** 화면에 담긴 **아이템 목록**을 **RecyclerView**로 구현하기 (아이템은 **더미 데이터**로 추가하며, 추후 데이터베이스 챕터 미션에서 연동 예정)
+</aside>
